@@ -338,10 +338,39 @@ section h1{
 }
 .section-img1 {
   width: 100%;
-  height: 70vh;
+  height: 68vh;
   background-image: url(/Amena.github.io/img/Moodboard\ 1.png);
   background-size: cover;
   
   
+}
+.expertise {
+  padding-top: 10vh;
+}
+.expertise-row{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  align-items: center;
+  justify-content: center;
+}
+.expertise-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 33vh;
+  margin: 10px;
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 0 0 0 2px white;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.expertise-col:hover {
+  background: var(--text-color);
+  color: black;
+  transform: scale(1.02);
+  animation: loading 1s infinite;
 }
 
