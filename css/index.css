@@ -36,12 +36,24 @@ header {
   width: 100%;
   padding: 2rem 9%;
   z-index: 100;
+  backdrop-filter: blur(10px); /* Moved here to apply blur to the entire header */
+
 }
+
 nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
+
+
 .navbar {
   list-style: none;
   display: flex;
@@ -78,7 +90,7 @@ nav i {
 .btn-menu {
   display: none;
 }
-.btn a {
+.navbtn a {
   color: white;
   margin-left: 0.5rem;
   background-color: black;
@@ -91,25 +103,32 @@ nav i {
     flex-direction: column;
     position: absolute;
     top: -700%; /* Initially hidden above the screen */
-    left: 20px; /* Set to align with the left edge */
-    width: 82%;
-    background-color: var(--second-bg-color);
+    left: 20px;
+    width: 88%;
+    background-color:var(--main-color);
     margin-top: 10px;
     padding: 10px;
     border-radius: 10px;
-    transition: top 0.7s ease-in-out; /* Add transition for sliding */
+    transition: top 0.7s ease-in-out;
+    z-index: 100; /* Ensures it stays above other content */
+    backdrop-filter: blur(10px);
   }
+  
   .btn-menu {
     display: block;
     order: 1;
+    cursor: pointer; /* Adds a pointer cursor for better UX */
   }
+  
   .btn a {
     font-size: 1.3rem;
   }
+  
   .navbar.active {
-    top: 100%; /* Slides down into view */
+    top: 60px; /* Adjusted to align with the header height */
   }
 }
+
 .home-section {
   padding: 2rem 9%;
   width: 100%;
@@ -191,6 +210,17 @@ h5 span{
  font-size: 1.4rem;
 }
 
+@media (max-width: 768px) {
+  .home-row h1{
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    line-height: 6rem;
+
+  }
+}
+
 
 .swiper {
   width: 100%;
@@ -239,15 +269,6 @@ h5 span{
   background: black;
 }
 
-.about {
-  width: 100%;
-  min-height: 86vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .about-info {
   border: 1px solid white;
   padding: 40px;
@@ -272,7 +293,7 @@ h5 span{
 
 .about-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   align-items: center;
   justify-content: center;
   gap: 2rem;
@@ -321,8 +342,14 @@ h5 span{
   text-align: justify;
 }
 
+@media (max-width: 768px) {
+  .about h1:after {
+    width: auto;
+  }
+}
+
 .section-img{
-  padding-top: 20vh;
+  padding-top: 10vh;
 }
 section h1{
   font-size: 4rem;
@@ -353,7 +380,7 @@ section h1{
 }
 .expertise-row{
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   align-items: center;
   justify-content: center;
   margin-top: 3vh;
@@ -595,12 +622,11 @@ section h1{
 }
 
 .footer .footer-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 3.5rem;
-  padding: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem; /* Optional for spacing between columns */
 }
+
 
 .footer-row .footer-col h4 {
   color: #fff;
@@ -684,30 +710,3 @@ section h1{
   color: #fff;
 }
 
-@media (max-width: 768px) {
-  .footer {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    transform: none;
-    width: 100%;
-    border-radius: 0;
-  }
-
-  .footer .footer-row {
-    padding: 20px;
-    gap: 1rem;
-  }
-
-  .footer-col form {
-    display: block;
-  }
-
-  .footer-col form :where(input, button) {
-    width: 100%;
-  }
-
-  .footer-col form button {
-    margin: 10px 0 0 0;
-  }
-}

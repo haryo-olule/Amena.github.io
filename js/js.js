@@ -38,4 +38,13 @@ checkbox.addEventListener("click", () => {
   master.textContent = master.textContent === "$399.99" ? "$39.99" : "$399.99";
 });
 
+window.addEventListener("scroll", () => {
+  const navbar = document.getElementById("myNav");
+  if (window.scrollY > window.innerHeight) {
+    navbar.classList.add("nav-blur");
+  } else {
+    navbar.classList.remove("nav-blur");
+  }
+});
+
 
