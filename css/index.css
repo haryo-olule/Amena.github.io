@@ -254,6 +254,7 @@ h5 span{
 .swiper-slide {
   width: 100%;
   position: relative;
+  border: none;
 }
 
 
