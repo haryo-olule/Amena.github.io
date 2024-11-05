@@ -266,7 +266,7 @@ h5 span{
 
 
 .swiper-pagination .swiper-pagination-bullet-active {
-  background: white;
+  background: var(--text-color);
 }
 
 .about-info {
